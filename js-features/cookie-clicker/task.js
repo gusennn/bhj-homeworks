@@ -1,10 +1,13 @@
-const timerValue = function() {
-    let timer = document.getElementById("clicker__counter");
-    if(timer.textContent == 0) {
-        alert("Вы победили в конкурсе");
-        clearInterval(timerInterval);
+const clicker = document.getElementById("clicker__counter");
+const element = document.getElementById("cookie");
+let clickCounter = 0;
+element.onclick = function() {
+    let randomNumber = Math.floor(Math.random() * 20) + 1;
+    if(randomNumber > 10) {
+        element.width += 5;
     } else {
-        timer.textContent--;
+        element.width -= 2;
     }
+    clickCounter++
+    clicker.textContent = clickCounter;
 }
-const timerInterval = setInterval(timerValue, 1000);
